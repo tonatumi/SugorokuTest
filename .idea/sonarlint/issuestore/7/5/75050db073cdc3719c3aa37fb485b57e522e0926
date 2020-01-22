@@ -1,0 +1,7 @@
+
+[squid:UselessImportCheck"+Remove this unused import 'java.util.UUID'.(ÀãÄ£úÿÿÿÿ8Ç³§šù-
+Asquid:S2119<"Save and re-use this "Random".(€Õéšúÿÿÿÿ8í÷›ù-
+isquid:UselessImportCheck">Remove this unused import 'org.bukkit.plugin.java.JavaPlugin'.(ÙÎ†È8­…šù-
+bsquid:UselessImportCheck"7Remove this unused import 'org.bukkit.command.Command'.( Æ›Ó8Ø¢¿šù-
+Rsquid:S1066("/Merge this if statement with the enclosing one.(ıÚ¯¨øÿÿÿÿ8‘½À¿û-
+Isquid:S1172B"&Remove these unused method parameters.(äŒŠÅûÿÿÿÿ8±­ËÀû-

@@ -1,0 +1,10 @@
+name: SugorokuTest
+version: ${project.version}
+main: com.tonatonahouse.sugorokutest.SugorokuTest
+commands:
+  sugoroku:
+    description: show help
+    usage: /<command>
+    permission:
+      sugoroku.*:
+        default: OP
