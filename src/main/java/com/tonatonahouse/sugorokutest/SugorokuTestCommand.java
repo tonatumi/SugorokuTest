@@ -11,10 +11,9 @@ import java.util.Random;
 import java.util.UUID;
 
 
-public class SugorokuTestCommand implements CommandExecutor {
+public class SugorokuTestCommand extends Processing implements CommandExecutor {
     private SugorokuTest plugin;
 
-    String prefix = "{Sugoroku Test}";
 
     public SugorokuTestCommand(SugorokuTest plugin){
         this.plugin =plugin;
@@ -30,42 +29,45 @@ public class SugorokuTestCommand implements CommandExecutor {
 
         //コマンドがsugorokuのみのとき
         if(args.length == 0){
-            this.showHelp(p);
+            showHelp(p);
             return true;
         }
 
         //引数が1つの時
         if(args.length ==1){
+            //createHelpのとき
+            if(args[0].equalsIgnoreCase("createHelp") && p.hasPermission("SugorokuTest.op")){
+                createHelp(p);
+                return true;
+            } else{
+                p.sendMessage("あなたには権限がありません。");
+            }
             //diceのとき
             if(args[0].equalsIgnoreCase("dice")){
-                this.rollDice(p);
+                rollDice(p);
                 return true;
             }
 
+            //entryのとき
+
+            //cancelのとき
+
+        }
+
+        //引数が２つのとき
+
+        //引数が３つのとき
+        //newgameだけ受けて、受けたら順番に詳細設定を打たせるのもあり？
+        if(args.length ==2){
+            //newgameのとき
+            if(args[0].equalsIgnoreCase("newgame")){
+                //マップをargs[1]にセット
+
+                //ゲームの人数をargs[2]人にセット
+            }
         }
 
     return true;
-    }
-
-    public void showHelp(Player p){
-        p.sendMessage("§e-------§r" + prefix + "§e-------§r");
-        p.sendMessage("§6§l/sugoroku dice§r:ダイスを振ります");
-        p.sendMessage("§6§l/sugoroku load [マップ名]§r:[マップ名]を読み込みます");
-        p.sendMessage("§6§l/sugoroku start§r:ゲームを開始します");
-        p.sendMessage("§6§l/sugoroku setting§r:ゲームの設定をします");
-
-    }
-
-    public void rollDice(Player p){
-        Random rdm = new Random();
-        int result = rdm.nextInt(6)+1;
-        Bukkit.getServer().broadcastMessage(p.getDisplayName() + "はダイスを振って" + result +"が出た！");
-        goForward(result,p);
-    }
-
-    public void goForward(int result, Player p){
-        //進む処理
-        Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(),"tp @e[name=+type=villager]");
     }
 
 
